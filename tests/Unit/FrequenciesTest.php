@@ -11,9 +11,9 @@ class FrequenciesTest extends TestCase
     public function canSetPlainCronExpression()
     {
         $frequencies =  $this->getMockForTrait(FrequenciesTrait::class);
-        $frequencies->setExpression('* * * * *');
+        $frequencies->expression = '* * * * *';
         $frequencies->cron('23 12 * * 1');
 
-        $this->assertEquals($frequencies->getExpression(), '23 12 * * 1');
+        $this->assertEquals($frequencies->expression, '23 12 * * 1');
     }
 }

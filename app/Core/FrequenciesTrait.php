@@ -4,8 +4,8 @@ namespace App\Core;
 
 trait FrequenciesTrait
 {
-    public function everyMinute()
+    public function cron($expression)
     {
-        # code...
+        $this->expression = $expression;
     }
 }
