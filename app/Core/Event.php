@@ -4,9 +4,12 @@ namespace App\Core;
 
 use Cron\CronExpression;
 use Carbon\Carbon;
+use App\Core\FrequenciesTrait;
 
 abstract class Event
 {
+    use FrequenciesTrait;
+
     protected $expression = '* * * * *';
 
     abstract public function handle();
