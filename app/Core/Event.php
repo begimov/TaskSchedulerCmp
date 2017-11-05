@@ -2,7 +2,12 @@
 
 namespace App\Core;
 
-class Event
+abstract class Event
 {
-    //
+    protected $expression = '* * * * *';
+
+    public function getExpression()
+    {
+        return $this->expression;
+    }
 }

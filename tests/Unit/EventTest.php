@@ -1,12 +1,15 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use App\Core\Event;
 
 class EventTest extends TestCase
 {
     /** @test **/
-    public function first()
+    public function eventHasDefaultCronExpression()
     {
-        $this->assertTrue(true);
+        $event =  $this->getMockForAbstractClass(Event::class);
+
+        $this->assertEquals($event->getExpression(), '* * * * *');
     }
 }
