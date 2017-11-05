@@ -26,7 +26,7 @@ class EventTest extends TestCase
     public function eventShouldNotRun()
     {
         $event =  $this->getMockForAbstractClass(Event::class);
-        $event->setExpression('0 0 1 * *');
+        $event->cron('0 0 1 * *');
 
         $this->assertFalse($event->isDueToRun(Carbon::create(1980, 5, 3)));
     }
