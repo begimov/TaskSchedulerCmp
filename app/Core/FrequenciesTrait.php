@@ -7,6 +7,7 @@ trait FrequenciesTrait
     public function cron($expression)
     {
         $this->expression = $expression;
+        return $this;
     }
 
     public function everyMinute()
@@ -31,6 +32,6 @@ trait FrequenciesTrait
     {
         $expressionArr = explode(' ', $this->expression);
         $expressionArr[$position - 1] = $value;
-        return $this->expression = implode(' ', $expressionArr);
+        return $this->cron(implode(' ', $expressionArr));
     }
 }
