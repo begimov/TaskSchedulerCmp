@@ -8,6 +8,15 @@ use App\Core\FrequenciesTrait;
 class FrequenciesTest extends TestCase
 {
     /** @test **/
+    public function canReplaceInExpression()
+    {
+        $frequencies = $this->setUpFrequencies();
+        $frequencies->replaceInExpression(1, '*/10');
+
+        $this->assertEquals($frequencies->expression, '*/10 * * * *');
+    }
+
+    /** @test **/
     public function canSetPlainCronExpression()
     {
         $frequencies = $this->setUpFrequencies();
@@ -32,6 +41,15 @@ class FrequenciesTest extends TestCase
         $frequencies->everyTenMinutes();
 
         $this->assertEquals($frequencies->expression, '*/10 * * * *');
+    }
+
+    /** @test **/
+    public function canSetEveryThirtyMinutes()
+    {
+        $frequencies = $this->setUpFrequencies();
+        $frequencies->everyThirtyMinutes();
+
+        $this->assertEquals($frequencies->expression, '*/30 * * * *');
     }
 
     protected function setUpFrequencies()
