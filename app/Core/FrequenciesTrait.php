@@ -13,4 +13,9 @@ trait FrequenciesTrait
     {
         $this->expression = '* * * * *';
     }
+
+    public function everyTenMinutes()
+    {
+        $this->expression = '*/10 * * * *';
+    }
 }
