@@ -16,6 +16,15 @@ class FrequenciesTest extends TestCase
         $this->assertEquals($frequencies->expression, '23 12 * * 1');
     }
 
+    /** @test **/
+    public function canSetEveryMinute()
+    {
+        $frequencies = $this->setUpFrequencies();
+        $frequencies->everyMinute();
+
+        $this->assertEquals($frequencies->expression, '* * * * *');
+    }
+
     protected function setUpFrequencies()
     {
         $frequencies =  $this->getMockForTrait(FrequenciesTrait::class);
