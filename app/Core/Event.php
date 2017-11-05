@@ -12,4 +12,9 @@ abstract class Event
     }
 
     abstract public function handle();
+
+    public function isDueToRun()
+    {
+        return true;
+    }
 }

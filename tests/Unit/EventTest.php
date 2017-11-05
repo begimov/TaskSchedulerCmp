@@ -12,4 +12,12 @@ class EventTest extends TestCase
 
         $this->assertEquals($event->getExpression(), '* * * * *');
     }
+
+    /** @test **/
+    public function eventShouldRun()
+    {
+        $event =  $this->getMockForAbstractClass(Event::class);
+
+        $this->assertTrue($event->isDueToRun());
+    }
 }
