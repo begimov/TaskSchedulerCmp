@@ -21,4 +21,13 @@ class EventTest extends TestCase
 
         $this->assertTrue($event->isDueToRun(Carbon::now()));
     }
+
+    /** @test **/
+    public function eventShouldNotRun()
+    {
+        $event =  $this->getMockForAbstractClass(Event::class);
+        $event->setExpression('0 0 1 * *');
+
+        $this->assertFalse($event->isDueToRun(Carbon::now()));
+    }
 }
