@@ -10,4 +10,6 @@ abstract class Event
     {
         return $this->expression;
     }
+
+    abstract public function handle();
 }
