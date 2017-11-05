@@ -16,8 +16,8 @@ abstract class Event
 
     abstract public function handle();
 
-    public function isDueToRun()
+    public function isDueToRun(Carbon $date)
     {
-        return CronExpression::factory($this->expression)->isDue(Carbon::now());
+        return CronExpression::factory($this->expression)->isDue($date);
     }
 }

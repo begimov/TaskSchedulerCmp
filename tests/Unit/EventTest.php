@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use App\Core\Event;
+use Carbon\Carbon;
 
 class EventTest extends TestCase
 {
@@ -18,6 +19,6 @@ class EventTest extends TestCase
     {
         $event =  $this->getMockForAbstractClass(Event::class);
 
-        $this->assertTrue($event->isDueToRun());
+        $this->assertTrue($event->isDueToRun(Carbon::now()));
     }
 }
