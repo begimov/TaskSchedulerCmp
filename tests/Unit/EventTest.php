@@ -28,6 +28,6 @@ class EventTest extends TestCase
         $event =  $this->getMockForAbstractClass(Event::class);
         $event->setExpression('0 0 1 * *');
 
-        $this->assertFalse($event->isDueToRun(Carbon::now()));
+        $this->assertFalse($event->isDueToRun(Carbon::create(1980, 5, 3)));
     }
 }
