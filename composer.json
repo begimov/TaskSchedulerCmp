@@ -1,7 +1,8 @@
 {
     "require": {
         "phpunit/phpunit": "^5.7",
-        "dragonmantank/cron-expression": "^1.2"
+        "dragonmantank/cron-expression": "^1.2",
+        "nesbot/carbon": "^1.22"
     },
     "autoload": {
         "psr-4": {
