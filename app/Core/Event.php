@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use Cron\CronExpression;
+
 abstract class Event
 {
     protected $expression = '* * * * *';
@@ -15,6 +17,6 @@ abstract class Event
 
     public function isDueToRun()
     {
-        return true;
+        return CronExpression::factory($this->expression)->isDue();
     }
 }
