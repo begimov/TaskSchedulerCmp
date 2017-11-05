@@ -12,9 +12,18 @@ class FrequenciesTest extends TestCase
     {
         $frequencies = $this->setUpFrequencies();
         $frequencies->replaceInExpression(1, '*/5')
-            ->replaceInExpression(1, '*/10');
+            ->replaceInExpression(2, '*/10');
 
-        $this->assertEquals($frequencies->expression, '*/10 * * * *');
+        $this->assertEquals($frequencies->expression, '*/5 */10 * * *');
+    }
+
+    /** @test **/
+    public function canReplaceInExpressionUsingArray()
+    {
+        $frequencies = $this->setUpFrequencies();
+        $frequencies->replaceInExpression(1, ['*/5', '*/10']);
+
+        $this->assertEquals($frequencies->expression, '*/5 */10 * * *');
     }
 
     /** @test **/

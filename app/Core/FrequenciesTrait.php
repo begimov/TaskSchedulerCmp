@@ -28,10 +28,15 @@ trait FrequenciesTrait
         return $this;
     }
 
-    public function replaceInExpression($position, $value)
+    public function replaceInExpression($position, $values)
     {
         $expressionArr = explode(' ', $this->expression);
-        $expressionArr[$position - 1] = $value;
+
+        array_splice($expressionArr, $position - 1, 
+            count($values), (array)$values);
+
+        array_slice($expressionArr, 0, 5);
+        
         return $this->cron(implode(' ', $expressionArr));
     }
 }
