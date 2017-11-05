@@ -27,6 +27,15 @@ class FrequenciesTest extends TestCase
     }
 
     /** @test **/
+    public function cantReplaceMoreThanLengthOfExpression()
+    {
+        $frequencies = $this->setUpFrequencies();
+        $frequencies->replaceInExpression(5, ['*/5', '*/10']);
+
+        $this->assertEquals($frequencies->expression, '* * * * */5');
+    }
+
+    /** @test **/
     public function canSetPlainCronExpression()
     {
         $frequencies = $this->setUpFrequencies();

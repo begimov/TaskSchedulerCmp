@@ -35,7 +35,7 @@ trait FrequenciesTrait
         array_splice($expressionArr, $position - 1, 
             count($values), (array)$values);
 
-        array_slice($expressionArr, 0, 5);
+        $expressionArr = array_slice($expressionArr, 0, 5);
         
         return $this->cron(implode(' ', $expressionArr));
     }
