@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use Cron\CronExpression;
+use Carbon\Carbon;
 
 abstract class Event
 {
@@ -17,6 +18,6 @@ abstract class Event
 
     public function isDueToRun()
     {
-        return CronExpression::factory($this->expression)->isDue();
+        return CronExpression::factory($this->expression)->isDue(Carbon::now());
     }
 }
